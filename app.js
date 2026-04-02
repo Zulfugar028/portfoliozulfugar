@@ -49,6 +49,10 @@ function addLine(type, text) {
     } else {
         div.innerHTML = `<span class="${cls}">${text}</span>`;
     }
+
+    const existing = body.querySelectorAll('.t-line:not(:last-child)');
+    if (existing.length > 12) existing[0].remove();
+
     body.insertBefore(div, firstLine);
     body.scrollTop = body.scrollHeight;
 }
@@ -63,7 +67,14 @@ function typeCmd(text, cb) {
 }
 
 function runLine() {
-    if (lineIdx >= lines.length) { lineIdx = 0; setTimeout(runLine, 1500); return; }
+    if (lineIdx >= lines.length) {
+        lineIdx = 0;
+        // Təkrarlanmadan əvvəl ekranı təmizlə
+        const oldLines = body.querySelectorAll('.t-line:not(:last-child)');
+        oldLines.forEach(el => el.remove());
+        setTimeout(runLine, 2000);
+        return;
+    }
     const l = lines[lineIdx++];
     if (l.type === 'cmd') {
         termCursor.style.display = 'inline-block';
@@ -72,12 +83,12 @@ function runLine() {
             setTimeout(() => {
                 addLine('cmd', l.text);
                 termCmd.textContent = '';
-                setTimeout(runLine, 300);
-            }, 200);
+                setTimeout(runLine, 400);
+            }, 300);
         });
     } else {
         addLine(l.type, l.text);
-        setTimeout(runLine, 280);
+        setTimeout(runLine, 350);
     }
 }
 setTimeout(runLine, 800);
