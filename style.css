@@ -47,7 +47,7 @@ nav {
 .nav-links a {
     color: var(--muted);
     text-decoration: none;
-    font-size: 17rem;
+    font-size: 17px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition: color 0.2s;
