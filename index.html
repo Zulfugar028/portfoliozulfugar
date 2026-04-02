@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#about">Haqqımda</a></li>
+            <li><a href="#skills">Bacarıqlar</a></li>
+            <li><a href="#blog">Bloq</a></li>
+            <li><a href="#contact">Əlaqə</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow2"></div>
+
+        <div class="hero-eyebrow">Penetration Tester · Security Researcher</div>
+        <h1>
+            Zülfüqar<br>
+            <span class="glitch" data-text="Hüseynli">Hüseynli</span>
+        </h1>
+        <p class="hero-desc">
+            Sistemlərə hücum etmədən əvvəl onları qorumağı öyrənirəm.<br>
+            Tapılan boşluqlar, CTF writeup-lar və pentest metodologiyaları haqqında yazıram.
+        </p>
+        <div class="hero-ctas">
+            <a href="#blog" class="btn-primary">Son Yazılar →</a>
+            <a href="#contact" class="btn-outline">Əlaqə saxla</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-num">12<span>+</span></div>
+                <div class="stat-label">CVE / Bug</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">08<span>+</span></div>
+                <div class="stat-label">CTF Writeup</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">3<span>x</span></div>
+                <div class="stat-label">Sertifikat</div>
+            </div>
+        </div>
+
+        <!-- TERMINAL -->
+        <div class="terminal">
+            <div class="terminal-bar">
+                <span class="t-dot r"></span>
+                <span class="t-dot y"></span>
+                <span class="t-dot g"></span>
+                <span class="terminal-title">zsh — pentest@zsec</span>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <div class="t-line"><span class="t-prompt">❯</span><span class="t-cmd" id="termCmd"></span><span
+                        class="blink" id="termCursor"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills-section" id="skills">
+        <div class="section-label">Texniki Bacarıqlar</div>
+        <h2 class="section-title fade-up">Silah dəsti</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-up">
+                <div class="skill-icon">🌐</div>
+                <div class="skill-name">Web App Pentesting</div>
+                <div class="skill-desc">OWASP Top 10, SQL Injection, XSS, SSRF, XXE, IDOR və digər kritik zəifliklər.
+                </div>
+                <div class="skill-tags">
+                    <span class="tag">Burp Suite</span>
+                    <span class="tag">OWASP ZAP</span>
+                    <span class="tag">SQLMap</span>
+                </div>
+            </div>
+            <div class="skill-card fade-up">
+                <div class="skill-icon">🔐</div>
+                <div class="skill-name">Network Security</div>
+                <div class="skill-desc">Port scanning, servis enumeration, şəbəkə protokollarında zəiflik axtarışı.
+                </div>
+                <div class="skill-tags">
+                    <span class="tag">Nmap</span>
+                    <span class="tag">Wireshark</span>
+                    <span class="tag">Metasploit</span>
+                </div>
+            </div>
+            <div class="skill-card fade-up">
+                <div class="skill-icon">⚙️</div>
+                <div class="skill-name">Exploitation</div>
+                <div class="skill-desc">Buffer overflow, privilege escalation, reverse shell texnikaları və
+                    post-exploitation.</div>
+                <div class="skill-tags">
+                    <span class="tag">Exploit Dev</span>
+                    <span class="tag">GDB</span>
+                    <span class="tag">pwntools</span>
+                </div>
+            </div>
+            <div class="skill-card fade-up">
+                <div class="skill-icon">🧩</div>
+                <div class="skill-name">CTF & Challenges</div>
+                <div class="skill-desc">Cryptography, Forensics, Reverse Engineering, Steganography, Web challenges.
+                </div>
+                <div class="skill-tags">
+                    <span class="tag">HackTheBox</span>
+                    <span class="tag">TryHackMe</span>
+                    <span class="tag">PicoCTF</span>
+                </div>
+            </div>
+            <div class="skill-card fade-up">
+                <div class="skill-icon">📜</div>
+                <div class="skill-name">Scripting & Automation</div>
+                <div class="skill-desc">Pentest alətlərinin avtomatlaşdırılması, custom script yazılması.</div>
+                <div class="skill-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">PowerShell</span>
+                </div>
+            </div>
+            <div class="skill-card fade-up">
+                <div class="skill-icon">📋</div>
+                <div class="skill-name">Reporting</div>
+                <div class="skill-desc">Professional pentest hesabatları, zəiflik sənədləşdirilməsi və risk
+                    qiymətləndirməsi.</div>
+                <div class="skill-tags">
+                    <span class="tag">CVSS</span>
+                    <span class="tag">OWASP</span>
+                    <span class="tag">CVE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" style="padding: 6rem 3rem;">
+        <div class="section-label">Son Yazılar</div>
+        <h2 class="section-title fade-up">Tapıntılar & Writeup-lar</h2>
+        <div class="posts-grid">
+
+            <a href="#" class="post-card fade-up">
+                <div class="post-meta">
+                    <span class="post-cat cat-vuln">Vulnerability</span>
+                    <span class="post-date">28 Mart 2025</span>
+                </div>
+                <div class="post-title">SQL Injection ilə Admin Panel Bypass: Real Case Study</div>
+                <div class="post-excerpt">Error-based SQLi texnikasından istifadə edərək autentifikasiya bypass edilməsi
+                    — addım-addım izah.</div>
+                <div class="post-footer">
+                    <span class="severity sev-critical"><span class="sev-dot"></span>CRITICAL</span>
+                    <span class="post-read">Oxu →</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card fade-up">
+                <div class="post-meta">
+                    <span class="post-cat cat-web">Web Sec</span>
+                    <span class="post-date">15 Mart 2025</span>
+                </div>
+                <div class="post-title">Stored XSS → Account Takeover: Bug Bounty Writeup</div>
+                <div class="post-excerpt">Saxlanılan XSS-dən session cookie oğurlaması və tam hesab ələ keçirilməsi
+                    metodologiyası.</div>
+                <div class="post-footer">
+                    <span class="severity sev-high"><span class="sev-dot"></span>HIGH</span>
+                    <span class="post-read">Oxu →</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card fade-up">
+                <div class="post-meta">
+                    <span class="post-cat cat-ctf">CTF</span>
+                    <span class="post-date">3 Mart 2025</span>
+                </div>
+                <div class="post-title">HackTheBox: "Blackout" maşınının həlli — Writeup</div>
+                <div class="post-excerpt">Linux privilege escalation + SUID binary istismarı ilə root flag-ın əldə
+                    edilməsi.</div>
+                <div class="post-footer">
+                    <span class="severity sev-medium"><span class="sev-dot"></span>MEDIUM</span>
+                    <span class="post-read">Oxu →</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card fade-up">
+                <div class="post-meta">
+                    <span class="post-cat cat-vuln">Vulnerability</span>
+                    <span class="post-date">20 Fevral 2025</span>
+                </div>
+                <div class="post-title">IDOR Zəifliyi: Başqa İstifadəçinin Məlumatlarına Giriş</div>
+                <div class="post-excerpt">Insecure Direct Object Reference texnikası ilə API endpoint-lərdə horizontal
+                    privilege escalation.</div>
+                <div class="post-footer">
+                    <span class="severity sev-high"><span class="sev-dot"></span>HIGH</span>
+                    <span class="post-read">Oxu →</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card fade-up">
+                <div class="post-meta">
+                    <span class="post-cat cat-web">Web Sec</span>
+                    <span class="post-date">8 Fevral 2025</span>
+                </div>
+                <div class="post-title">SSRF ilə Internal Network Kəşfiyyatı</div>
+                <div class="post-excerpt">Server-Side Request Forgery vasitəsilə daxili şəbəkə sərvislərinə icazəsiz
+                    giriş metodları.</div>
+                <div class="post-footer">
+                    <span class="severity sev-critical"><span class="sev-dot"></span>CRITICAL</span>
+                    <span class="post-read">Oxu →</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card fade-up">
+                <div class="post-meta">
+                    <span class="post-cat cat-ctf">CTF</span>
+                    <span class="post-date">25 Yanvar 2025</span>
+                </div>
+                <div class="post-title">Kriptografiya Challenge: RSA-dan Flag-ı Çıxarma</div>
+                <div class="post-excerpt">Zəif RSA tətbiqindəki riyazi boşluğun aşkarlanması və özel açarın yenidən
+                    qurulması.</div>
+                <div class="post-footer">
+                    <span class="severity sev-medium"><span class="sev-dot"></span>MEDIUM</span>
+                    <span class="post-read">Oxu →</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="contact-inner">
+            <div>
+                <div class="section-label">Əlaqə</div>
+                <h2 class="section-title fade-up">Əməkdaşlıq &<br>Bug Bounty</h2>
+                <p style="font-size:0.8rem; color:var(--muted); line-height:1.8; max-width:400px; margin-top: 1rem;">
+                    Məsul açıqlama (responsible disclosure) proqramları çərçivəsində tapıntılarımı paylaşıram.
+                    Əməkdaşlıq və ya sual üçün aşağıdakı kanallardan əlaqə saxlayın.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:zulfugar@zsec.az" class="contact-link">
+                        <span class="contact-link-icon">@</span>
+                        <div>
+                            <div class="contact-link-label">E-poçt</div>
+                            <div class="contact-link-sub">zulfugar@zsec.az</div>
+                        </div>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-link-icon">▷</span>
+                        <div>
+                            <div class="contact-link-label">GitHub</div>
+                            <div class="contact-link-sub">github.com/zulfuqar-sec</div>
+                        </div>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-link-icon">◈</span>
+                        <div>
+                            <div class="contact-link-label">HackTheBox</div>
+                            <div class="contact-link-sub">app.hackthebox.com/profile/zsec</div>
+                        </div>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-link-icon">◉</span>
+                        <div>
+                            <div class="contact-link-label">LinkedIn</div>
+                            <div class="contact-link-sub">linkedin.com/in/zulfuqar-sec</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div style="margin-top: 3.5rem;">
+                    <div style="font-size:0.7rem; color:var(--muted); margin-bottom:1rem; letter-spacing:0.1em;">//
+                        Sertifikatlar</div>
+                    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                        <div
+                            style="border:1px solid var(--border); padding:1rem 1.2rem; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <div
+                                    style="font-family:'Syne',sans-serif; font-size:0.85rem; font-weight:800; color:var(--white);">
+                                    eJPT</div>
+                                <div style="font-size:0.62rem; color:var(--muted);">eLearnSecurity Junior Penetration
+                                    Tester</div>
+                            </div>
+                            <div style="font-size:0.6rem; color:#4ade80; letter-spacing:0.1em;">✓ AKTIV</div>
+                        </div>
+                        <div
+                            style="border:1px solid var(--border); padding:1rem 1.2rem; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <div
+                                    style="font-family:'Syne',sans-serif; font-size:0.85rem; font-weight:800; color:var(--white);">
+                                    CompTIA Security+</div>
+                                <div style="font-size:0.62rem; color:var(--muted);">Network Security Fundamentals</div>
+                            </div>
+                            <div style="font-size:0.6rem; color:#4ade80; letter-spacing:0.1em;">✓ AKTIV</div>
+                        </div>
+                        <div
+                            style="border:1px solid var(--border); padding:1rem 1.2rem; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <div
+                                    style="font-family:'Syne',sans-serif; font-size:0.85rem; font-weight:800; color:var(--white);">
+                                    CEH v12</div>
+                                <div style="font-size:0.62rem; color:var(--muted);">Certified Ethical Hacker — In
+                                    Progress</div>
+                            </div>
+                            <div style="font-size:0.6rem; color:var(--accent3); letter-spacing:0.1em;">◌ DAVAM EDIR
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pgp-box" style="margin-top:1.5rem;">
+                        -----BEGIN PGP PUBLIC KEY BLOCK-----<br>
+                        mQINBGZ1... [tam açar zsec.az/pgp ünvanında]<br>
+                        -----END PGP PUBLIC KEY BLOCK-----
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>© 2025 <a href="#">Z.SEC</a> · Zülfüqar Quliyev</div>
+        <div style="color:var(--muted);">Bütün boşluqlar məsuliyyətlə açıqlanmışdır.</div>
+        <div>
+            <a href="#">GitHub</a> &nbsp;·&nbsp;
+            <a href="#">HackTheBox</a> &nbsp;·&nbsp;
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
